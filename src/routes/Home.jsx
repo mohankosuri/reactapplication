@@ -2,6 +2,8 @@ import React,{useContext, useState} from 'react'
 import { Countercontext } from '../context/countcontext'
 import Count from '../components/Count';
 import Mouseover from '../components/Mouseover';
+import SearchIcon from '@mui/icons-material/Search';
+import axios from 'axios';
 
 const Home = () => {
     const { count, reset, increase, decrease } = useContext(Countercontext);
@@ -9,9 +11,11 @@ const Home = () => {
     const[name,setName]=useState("")
 
     const[color,setColor]=useState('red')
+    const [query, setQuery] = useState('');
+    const [results, setResults] = useState([]);
 
-
-
+    const API_KEY = 'AIzaSyCYQ_JWgmQ4S5WI1fVJZNoagYoDVFHkl58';
+    const SEARCH_ENGINE_ID = '92cf40e796ca64946';
 
     const changeColor =(color)=>{
       setColor(color)
@@ -27,48 +31,56 @@ const Home = () => {
 
         console.log(name)
     }
+
+
+    const handleSearch = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
+          params: {
+            key: API_KEY,
+            cx: SEARCH_ENGINE_ID,
+            q: query,
+          },
+        });
+        setResults(response.data.items);
+        console.log(results)
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+      }
+    };
+  
   return (
-    <div className='text-white mt-[50px]'>
-    <div className='flex space-x-3'>
-    <button className='text-white bg-black p-4 rounded-lg' onClick={increase}>+</button>
-    <button className='text-white bg-black p-4 rounded-lg' onClick={decrease}>-</button>
-    <button className='text-white bg-black p-4 rounded-lg' onClick={reset}>Reset</button>
-    
-   <form onSubmit={Handlesubmit}>
-   <label className='mx-2'>Entername</label>
-   <input value={name} onChange={Handlechnage} className='p-2 text-black mx-2'/>
-
-   <button type='submit'>submit</button>
-   
-   </form>
-    
+     <div>
+     <div className='flex justify-center items-center mt-[150px]'>
+       <h2 className='font-bold text-5xl tracking-wider text-white'><span className='text-red-500'>S</span>earch <span className='text-red-500'>A</span>ny<span className='text-red-500'>T</span>hing</h2>
+     
+     </div>
+     
+        <div className='flex justify-center items-center mt-[100px] space-x-3'>
+        <form onSubmit={handleSearch}>
+          <input className='w-[500px] px-3 py-2 rounded outline-none mr-2' placeholder="Search..."  type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}/>
+          <button type="submit" className='bg-black text-white px-4 py-2 rounded-md'>Search</button>
+        </form>
+        </div>
+        
+        <div>
+      
+      <div>
+        {results.map((result, index) => (
+          <div key={index} className='bg-white border m-10 p-4'>
+            <h3 className='text-lg font-bold'>{result.title}</h3>
+            
+            <a href={result.link} target="_blank" rel="noopener noreferrer" className='text-blue-500'>
+              {result.link}
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
-
-    <div className='grid grid-cols-4 m-10'>
-    <div className='bg-red-300 h-[200px] w-[250px] flex justify-center items-center text-8xl opacity-50 text-black'>{count}</div>
-    <div className='bg-red-300 h-[200px] w-[250px] flex justify-center items-center text-2xl opacity-50'>{name}</div>
-    <div className='bg-red-300 h-[200px] w-[250px]'></div>
-    <div className='bg-red-300 h-[200px] w-[280px]'></div>
-
-
-
-    <div className='w-[200px] h-[200px] ' style={{backgroundColor:color}}>
-       this is a color {color}
-    
-    </div>
-
-
-   
-    
-    </div>
-    <Count/>
-
-    <Mouseover/>
-
-
-    <button onClick={()=>changeColor("green")} className='px-4 py-2 bg-green-500 rounded-md'>color</button>
-    <button onClick={()=>changeColor("gray")} className='px-4 py-2 bg-pink-500 rounded-md'>color</button>
-    </div>
+     </div>
   )
 }
 

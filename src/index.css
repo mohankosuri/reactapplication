@@ -19,7 +19,7 @@
 
 
 body{
-  background-image: url("../public/bg.jpg");
+  background-image: url("./assets/backgroundimage.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;

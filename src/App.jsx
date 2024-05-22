@@ -10,6 +10,10 @@ import Signup from './routes/Signup'
 import Headroom from 'react-headroom'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment, incrementByAmount } from "./redux/countslice"
+import Createbook from './routes/Createbook'
+import Deletebook from './routes/Deletebook'
+import Updatebook from './routes/Updatebook'
+import Showbook from './routes/Showbook'
 
  
  const App = () => {
@@ -37,24 +41,7 @@ const reset =()=>{
      <div>
 
 
-     <div className='App'>
-        <h1>The count is {counte}</h1>
-        <div className="button">
-        <button
-          onClick={() => dispatch(increment())}
-        >
-          Increase
-        </button>
-        <button
-          onClick={() => dispatch(decrement())}
-        >
-          Decrease
-        </button>
-        <button onClick={()=>dispatch(incrementByAmount(10))} > Increase by 10</button>
-
-        </div>
-        
-      </div>
+      
 
       
      <Countercontext.Provider value={{count,setCount,reset,increase,decrease}}>
@@ -71,6 +58,10 @@ const reset =()=>{
        <Route path={'/about'} element={<About/>}>About</Route>
        <Route path={'/login'} element={<Loginpage/>}>About</Route>
        <Route path={'/signup'} element={<Signup/>}>About</Route>
+       <Route path={'/books/create'} element={<Createbook/>}></Route>
+       <Route path={'/books/delete'} element={<Deletebook/>}></Route>
+       <Route path={'/books/update'} element={<Updatebook/>}></Route>
+       <Route path={'/books/details/:id'} element={<Showbook/>}></Route>
      </Routes>
      
      </Countercontext.Provider>  

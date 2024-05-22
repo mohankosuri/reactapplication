@@ -9,6 +9,7 @@ import MultiActionAreaCard from '../components/Card1'
 import Crickbuzz from '../components/Crickbuzz'
 import Passwordgenerator from '../components/Passwordgenerator'
 import Testing from '../components/Testing'
+import Createbook from './Createbook'
 
 const About = () => {
 
@@ -39,18 +40,19 @@ const About = () => {
         </div>
       </div>
       <div className='m-10 flex justify-end'>
-      <DataTable/>
+       
       </div>
 
       <div className='grid grid-cols-3 ml-10 mb-10'>
        <MultiActionAreaCard/>
        <MultiActionAreaCard/>
        <MultiActionAreaCard/>
+        
       </div>
-      <Passwordgenerator/>
+     
  
 
-<Testing/> 
+  
       
     </div>
   )

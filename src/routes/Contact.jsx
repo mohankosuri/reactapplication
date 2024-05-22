@@ -2,13 +2,14 @@ import React,{useState,useContext} from 'react'
 import { Countercontext } from '../context/countcontext'
 import Button from '../components/Button'
 import Crickbuzz from '../components/Crickbuzz'
+import Createbook from './Createbook'
 
 const Contact = () => {
  
 
 
   return (
-    <div className="flex justify-center items-center opacity-70 mt-[100px]">
+    <div className="flex justify-center items-center opacity-70 mt-[50px]">
       <div className="max-w-md w-full bg-black p-8 rounded border border-white shadow-2xl">
         <h2 className="text-2xl font-semibold mb-4 justify-center flex text-white">Contact Us</h2>
         <form className="space-y-4">
@@ -28,8 +29,9 @@ const Contact = () => {
             <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
           </div>
         </form>
-         <Crickbuzz/>
+        
       </div>
+      <Createbook/>
     </div>
   )
 }
