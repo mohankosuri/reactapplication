@@ -45,7 +45,7 @@ const Loginpage = () => {
                 type="text"
                 id="username"
                 name="username"
-                className="mt-1 p-2 w-full border rounded-md"
+                className="logininput"
                 required
                 
                 onChange={Onhandlechange}
@@ -60,7 +60,7 @@ const Loginpage = () => {
                 type="password"
                 id="password"
                 name="password"
-                className="mt-1 p-2 w-full border rounded-md"
+                className="logininput"
                 required
                 onChange={Onhandlechange}
                

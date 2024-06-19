@@ -26,3 +26,7 @@ body{
   padding: 0;
   
 }
+
+.logininput{
+  @apply mt-1 p-2 w-full border rounded-md outline-none
+} 

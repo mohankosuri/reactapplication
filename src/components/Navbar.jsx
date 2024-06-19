@@ -12,7 +12,7 @@ const Navbar = () => {
           
           
     </div>
-    <div className='flex ml-[50px]'> <NavLink to={'/login'} className="bg-white text-black py-2 px-4 rounded-lg font-mono font-bold border border-orange-500 hover:bg-orange-100">Login</NavLink></div>
+    <div className='flex ml-[50px]'> <NavLink to={'/login'} className="bg-white text-black py-2 px-8 rounded-full font-mono font-bold border border-orange-500 hover:bg-orange-100">Login</NavLink></div>
     <div className='flex ml-4'> <NavLink to={'/signup'} className="bg-black text-white py-2 px-4 rounded-lg font-mono font-bold">Signup</NavLink></div>
     </div>
   )

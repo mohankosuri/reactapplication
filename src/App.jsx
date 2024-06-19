@@ -14,6 +14,7 @@ import Createbook from './routes/Createbook'
 import Deletebook from './routes/Deletebook'
 import Updatebook from './routes/Updatebook'
 import Showbook from './routes/Showbook'
+import usefetch from './hooks/usefetch'
 
  
  const App = () => {
@@ -21,7 +22,7 @@ import Showbook from './routes/Showbook'
   const counte = useSelector((state) => state.counter.count)
   const dispatch = useDispatch()
   const [count,setCount]=useState(0)
-
+  const [data] = usefetch("https://jsonplaceholder.typicode.com/todos");
  
   const increase =()=>{
     setCount(count+1)
@@ -41,7 +42,6 @@ const reset =()=>{
      <div>
 
 
-      
 
       
      <Countercontext.Provider value={{count,setCount,reset,increase,decrease}}>
@@ -50,7 +50,7 @@ const reset =()=>{
      
      </Headroom>
       
-
+    
      
      <Routes>
        <Route path='/' element={<Home/>}>Home</Route>
@@ -65,7 +65,7 @@ const reset =()=>{
      </Routes>
      
      </Countercontext.Provider>  
-     
+    
      </div>
    )
  }

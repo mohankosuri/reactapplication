@@ -26,6 +26,8 @@ const Home = () => {
         setName(e.target.value)
     }
 
+    
+
     const Handlesubmit =(e)=>{
         e.preventDefault()
 
@@ -53,17 +55,18 @@ const Home = () => {
   return (
      <div>
      <div className='flex justify-center items-center mt-[150px]'>
-       <h2 className='font-bold text-5xl tracking-wider text-white'><span className='text-red-500'>S</span>earch <span className='text-red-500'>A</span>ny<span className='text-red-500'>T</span>hing</h2>
-     
+       <h2 className='font-bold text-5xl tracking-wider text-black'><span className='text-red-500'>S</span>earch <span className='text-red-500'>A</span>ny<span className='text-red-500'>T</span>hing</h2>
+    
      </div>
-     
+      
+      
         <div className='flex justify-center items-center mt-[100px] space-x-3'>
         <form onSubmit={handleSearch}>
           <input className='w-[500px] px-3 py-2 rounded outline-none mr-2' placeholder="Search..."  type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}/>
-          <button type="submit" className='bg-black text-white px-4 py-2 rounded-md'>Search</button>
-        </form>
+          <button type="submit" className='bg-black text-white px-4 py-2 rounded-md border-white border'>Search</button>
+         </form>
         </div>
         
         <div>

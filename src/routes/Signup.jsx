@@ -4,6 +4,11 @@ import React from 'react';
 import Lottie from "lottie-react";
 import Loginpageimage from '../assets/Login1.json'
 import { Link } from 'react-router-dom';
+
+
+const styles={
+  inputs:"mt-1 p-2 w-full border rounded-md outline-none"
+}
  
 
 const loginimage ="https://as2.ftcdn.net/v2/jpg/04/60/71/01/1000_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg"
@@ -28,7 +33,7 @@ const Signup = () => {
                 type="text"
                 id="email"
                 name="email"
-                className="mt-1 p-2 w-full border rounded-md"
+                className={styles.inputs}
                 required
               />
             </div>
@@ -40,7 +45,7 @@ const Signup = () => {
                 type="text"
                 id="username"
                 name="username"
-                className="mt-1 p-2 w-full border rounded-md"
+                className={styles.inputs}
                 required
               />
             </div>
@@ -53,7 +58,7 @@ const Signup = () => {
                 type="password"
                 id="password"
                 name="password"
-                className="mt-1 p-2 w-full border rounded-md"
+                className={styles.inputs}
                 required
               />
             </div>
